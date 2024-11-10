@@ -1,0 +1,26 @@
+import java.util.*;
+
+class InvalidException extends Exception {
+	public String toString() {
+		return "Invalid Password...";
+	}
+}
+
+public class ExceptionHandling {
+	public static void main(String args[]) {
+		Scanner s = new Scanner(System.in);
+		try {
+			System.out.print("Enter username : ");
+			String user = s.next();
+			System.out.print("\nEnter password : ");
+			String pass = s.next();
+			if (user.equals("Hello") && pass.equals("a123")) {
+				System.out.println("\nLogin Successful...");
+			} else {
+				throw new InvalidException();
+			}
+		} catch (InvalidException e) {
+			System.out.println("\nError: " + e);
+		}
+	}
+}
