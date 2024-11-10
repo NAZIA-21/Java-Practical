@@ -1,0 +1,103 @@
+package exp5;
+
+import java.util.Scanner;
+
+public class Sort {
+
+	private static void sortIntegers(int[] arr, int n) {
+		for (int i = 0; i < n; i++) {
+			for (int j = i + 1; j < n; j++) {
+				if (arr[i] > arr[j]) {
+					int temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+	}
+
+	private static void sortNames(String[] arr, int d) {
+		for (int i = 0; i < d; i++) {
+			for (int j = i + 1; j < d; j++) {
+				if (arr[i].compareTo(arr[j]) > 0) {
+					String temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+	}
+
+	private static void displayArray(int[] arr, int size) {
+		for (int i = 0; i < size; i++) {
+			System.out.print(arr[i] + " ");
+		}
+		System.out.println();
+	}
+
+	private static void displayArray(String[] arr, int size) {
+		for (int i = 0; i < size; i++) {
+			System.out.print(arr[i] + " ");
+		}
+		System.out.println();
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int choice;
+		do {
+
+			System.out.println("Menu:");
+
+			System.out.println("1. Sorting of integers");
+			System.out.println("2. Sorting of names");
+			System.out.println("3. Exit");
+			System.out.print("Enter your choice: ");
+			choice = sc.nextInt();
+			sc.nextLine();
+			switch (choice) {
+			case 1:
+
+				System.out.print("Enter the number of integers: ");
+				int n = sc.nextInt();
+				sc.nextLine();
+				int[] arr = new int[n];
+
+				System.out.println("Enter the integers:");
+
+				for (int i = 0; i < n; i++) {
+					arr[i] = sc.nextInt();
+				}
+				System.out.println("Before sorting:");
+				displayArray(arr, n);
+
+				sortIntegers(arr, n);
+				System.out.println("After sorting:");
+				displayArray(arr, n);
+				break;
+			case 2:
+				System.out.print("Enter the number of names: ");
+				int d = sc.nextInt();
+				sc.nextLine();
+				String[] namearr = new String[d];
+				System.out.println("Enter the names:");
+
+				for (int i = 0; i < d; i++) {
+					namearr[i] = sc.nextLine();
+				}
+				System.out.println("Before sorting:");
+				displayArray(namearr, d);
+				sortNames(namearr, d);
+				System.out.println("After sorting:");
+				displayArray(namearr, d);
+				break;
+			case 3:
+				System.out.println("Exiting...");
+				break;
+			default:
+				System.out.println("Invalid choice. Please try again.");
+				break;
+			}
+		} while (choice != 3);
+	}
+}
