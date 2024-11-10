@@ -1,0 +1,62 @@
+package exp3;
+
+import java.util.Scanner;
+
+class Rect{
+	double width, length, area;
+	String color;
+	
+	Scanner sc= new Scanner(System.in);
+	
+	void getWidth() {
+		System.out.print("Enter the width : ");
+		width = sc.nextDouble();
+	}
+	
+	void getLength() {
+		System.out.print("Enter the length : ");
+		length = sc.nextDouble();
+	}
+	
+	double area() {
+		return (length * width);
+	}
+	
+	void getColor() {
+		System.out.print("Enter the color : ");
+		color = sc.next();
+	}
+	
+	String showColor() {
+		return color;
+	}
+}
+
+public class Rectangle {
+
+	public static void main(String[] args) {
+		Rect r1= new Rect();
+		Rect r2= new Rect();
+		
+		System.out.println("First Rectangle :- ");
+		r1.getWidth();
+		r1.getLength();
+		r1.getColor();
+		
+		System.out.println("\nSecond Rectangle :- ");
+		r2.getWidth();
+		r2.getLength();
+		r2.getColor();
+		
+		String c1= r1.showColor();
+		String c2= r2.showColor();
+		
+		if(r1.area() == r2.area() && (c1.compareTo(c2)==0)) {
+			System.out.println("Matching Rectangles");	
+		}else {
+			System.out.println("Non-matching Rectangle");
+		}
+
+	}
+
+}
