@@ -1,47 +1,55 @@
+package exp8;
+
 import java.io.*;
 
-interface Shape {
-	final float pi = 3.14F;
-
+interface Shape{
+	
+	final float pi= 3.142f;
 	public void area();
 }
 
-class Circle implements Shape {
+class Circle implements Shape{
+	
 	int r;
-
-	Circle(int r) {
-		this.r = r;
+	
+	Circle(int r){
+		this.r= r;
 	}
-
 	public void area() {
-		System.out.println("Area of Circle : " + (pi * r * r));
+		System.out.println("Area of circle with radius " + r + " : " + (pi*r*r));
 	}
 }
 
-class Sphere implements Shape {
+class Sphere implements Shape{
+	
 	int r;
-
-	Sphere(int r) {
-		this.r = r;
+	
+	Sphere(int r){
+		this.r= r;
 	}
-
 	public void area() {
-		System.out.println("Area of Sphere : " + (4 * pi * r * r));
+		System.out.println("Area of sphere with radius " + r + " : " + (4*pi*r*r));
 	}
 }
 
-public class Main {
-	public static void main(String a[]) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+public class ImplementsInterface {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
 		int r;
-		System.out.print("Enter radius of Circle : ");
-		r = Integer.parseInt(br.readLine());
-		Shape S;
-		S = new Circle(r);
-		S.area();
-		System.out.print("\nEnter radius of Sphere : ");
-		r = Integer.parseInt(br.readLine());
-		S = new Sphere(r);
-		S.area();
+		
+		System.out.print("Enter the radius of circle : ");
+		r= Integer.parseInt(br.readLine());
+		
+		Shape s= new Circle(r);
+		s.area();
+		
+		System.out.print("\nEnter the radius of sphere : ");
+		r= Integer.parseInt(br.readLine());
+		
+		s= new Sphere(r);
+		s.area();
+			
 	}
+
 }
